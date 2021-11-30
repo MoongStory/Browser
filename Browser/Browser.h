@@ -5,6 +5,8 @@
 #ifndef _BROWSER_H_
 #define _BROWSER_H_
 
+#include <iostream>
+
 namespace BROWSER
 {
 	class Browser
@@ -13,7 +15,7 @@ namespace BROWSER
 		int OpenURL(const std::string url, const std::string browser = "Default");
 		int OpenURLWithIE(const std::string url);
 		int OpenURLWithChrome(const std::string url);
+		int OpenURLWithMSEdge(const std::string url);
 	};
 }
-
 #endif	// _BROWSER_H_

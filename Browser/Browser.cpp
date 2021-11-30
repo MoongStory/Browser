@@ -1,15 +1,11 @@
-#include "StdAfx.h"
-
 #include "Browser.h"
 
 #include <algorithm>
-
-extern CLoggerV4 logger;
+#include <Windows.h>
+#pragma comment(lib, "Shell32.lib")
 
 int BROWSER::Browser::OpenURL(const std::string url, const std::string browser)
-{
-	logger.trace("OpenURL Start");
-	
+{	
 	std::string strURL = url;
 	std::string strBrowser = browser;
 	
@@ -17,7 +13,7 @@ int BROWSER::Browser::OpenURL(const std::string url, const std::string browser)
 	
 	if(strBrowser == "default")
 	{
-		ShellExecute(NULL, "open", strURL.c_str(), "", "", SW_SHOW);	// OS 기본 브라우저로 실행
+		ShellExecuteA(NULL, "open", strURL.c_str(), "", "", SW_SHOW);	// OS 기본 브라우저로 실행
 	}
 	else if(strBrowser == "ie")
 	{
@@ -31,42 +27,45 @@ int BROWSER::Browser::OpenURL(const std::string url, const std::string browser)
 	{
 		OpenURLWithChrome(url);
 	}
+	else if (strBrowser == "edge")
+	{
+		OpenURLWithMSEdge(url);
+	}
+	else if (strBrowser == "msedge")
+	{
+		OpenURLWithMSEdge(url);
+	}
 	else
 	{
-		logger.trace("OpenURL, unknown browser[%s] check the param, run as the OS default browser.", strBrowser.c_str());
-		logger.debug("OpenURL param[%s]", strURL.c_str());
-		ShellExecute(NULL, "open", strURL.c_str(), "", "", SW_SHOW);	// OS 기본 브라우저로 실행
+		ShellExecuteA(NULL, "open", strURL.c_str(), "", "", SW_SHOW);	// OS 기본 브라우저로 실행
 	}
-	
-	logger.trace("OpenURL End");
 	
 	return S_OK;
 }
 
 int BROWSER::Browser::OpenURLWithIE(const std::string url)
 {
-	logger.trace("OpenURLWithIE Start");
-	
 	std::string strURL = url;
 	
-	logger.debug("OpenURLWithIE param[%s]", strURL.c_str());
-	ShellExecute(NULL, "open", "iexplore.exe", strURL.c_str(), "", SW_SHOW);
-	
-	logger.trace("OpenURLWithIE End");
+	ShellExecuteA(NULL, "open", "iexplore.exe", strURL.c_str(), "", SW_SHOW);
 	
 	return S_OK;
 }
 
 int BROWSER::Browser::OpenURLWithChrome(const std::string url)
 {
-	logger.trace("OpenURLWithChrome Start");
-	
 	std::string strURL = url;
 	
-	logger.debug("OpenURLWithChrome param[%s]", strURL.c_str());
-	ShellExecute(NULL, "open", "chrome.exe", strURL.c_str(), "", SW_SHOW);
+	ShellExecuteA(NULL, "open", "chrome.exe", strURL.c_str(), "", SW_SHOW);
 	
-	logger.trace("OpenURLWithChrome End");
+	return S_OK;
+}
+
+int BROWSER::Browser::OpenURLWithMSEdge(const std::string url)
+{
+	std::string strURL = url;
+	
+	ShellExecuteA(NULL, "open", "msedge.exe", strURL.c_str(), "", SW_SHOW);
 	
 	return S_OK;
 }
