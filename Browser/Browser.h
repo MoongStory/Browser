@@ -12,7 +12,7 @@ namespace BROWSER
 	class Browser
 	{
 	public :
-		int OpenURL(const std::string url, const std::string browser = "Default");
+		int OpenURL(const std::string url, std::string browser = "Default");
 		int OpenURLWithIE(const std::string url);
 		int OpenURLWithChrome(const std::string url);
 		int OpenURLWithMSEdge(const std::string url);
