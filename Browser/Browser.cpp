@@ -1,12 +1,10 @@
-#include "StdAfx.h"
-
 #include "Browser.h"
 
 #include <algorithm>
 #include <Windows.h>
 #pragma comment(lib, "Shell32.lib")
 
-int BROWSER::Browser::OpenURL(const std::string url, std::string browser)
+int MOONG::BROWSER::Browser::OpenURL(const std::string url, std::string browser)
 {
 	std::transform(browser.begin(), browser.end(), browser.begin(), ::tolower);
 	
@@ -42,21 +40,21 @@ int BROWSER::Browser::OpenURL(const std::string url, std::string browser)
 	return S_OK;
 }
 
-int BROWSER::Browser::OpenURLWithIE(const std::string url)
+int MOONG::BROWSER::Browser::OpenURLWithIE(const std::string url)
 {
 	ShellExecuteA(NULL, "open", "iexplore.exe", url.c_str(), "", SW_SHOW);
 	
 	return S_OK;
 }
 
-int BROWSER::Browser::OpenURLWithChrome(const std::string url)
+int MOONG::BROWSER::Browser::OpenURLWithChrome(const std::string url)
 {
 	ShellExecuteA(NULL, "open", "chrome.exe", url.c_str(), "", SW_SHOW);
 	
 	return S_OK;
 }
 
-int BROWSER::Browser::OpenURLWithMSEdge(const std::string url)
+int MOONG::BROWSER::Browser::OpenURLWithMSEdge(const std::string url)
 {
 	ShellExecuteA(NULL, "open", "msedge.exe", url.c_str(), "", SW_SHOW);
 

@@ -1,5 +1,5 @@
 #if _MSC_VER > 1000
-#pragma once
+	#pragma once
 #endif
 
 #ifndef _BROWSER_H_
@@ -7,15 +7,18 @@
 
 #include <iostream>
 
-namespace BROWSER
+namespace MOONG
 {
-	class Browser
+	namespace BROWSER
 	{
-	public :
-		int OpenURL(const std::string url, std::string browser = "Default");
-		int OpenURLWithIE(const std::string url);
-		int OpenURLWithChrome(const std::string url);
-		int OpenURLWithMSEdge(const std::string url);
-	};
+		class Browser
+		{
+		public:
+			int OpenURL(const std::string url, std::string browser = "Default");
+			int OpenURLWithIE(const std::string url);
+			int OpenURLWithChrome(const std::string url);
+			int OpenURLWithMSEdge(const std::string url);
+		};
+	}
 }
 #endif	// _BROWSER_H_
