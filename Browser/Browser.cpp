@@ -4,6 +4,13 @@
 #include <Windows.h>
 #pragma comment(lib, "Shell32.lib")
 
+MOONG::BROWSER::Browser::Browser() :
+REG_SUB_KEY_WINDOWS_DEFAULT_BROWSER("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.html\\UserChoice"),
+REG_VALUE_WINDOWS_DEFAULT_BROWSER("ProgID")
+{
+
+}
+
 int MOONG::BROWSER::Browser::OpenURL(const std::string url, std::string browser)
 {
 	std::transform(browser.begin(), browser.end(), browser.begin(), ::tolower);
@@ -48,8 +55,8 @@ int MOONG::BROWSER::Browser::OpenURLWithWindowsDefaultBrowser(const std::string 
 
 	std::transform(windows_default_browser.begin(), windows_default_browser.end(), windows_default_browser.begin(), ::tolower);
 
-	// 파라미터 url 앞에 "-kiosk"가 붙어서 올 경우 크롬, 엣지는 정상 동작하지만, \
-		다른 브라우저의 경우 "-kiosk"가 아닐 경우 여기서 치환해준다.
+	// 파라미터 url 앞에 "-kiosk"가 붙어서 올 경우 크롬, 엣지는 정상 동작하지만,
+	// 다른 브라우저의 경우 "-kiosk"가 아닐 경우 여기서 치환해준다.
 	if (windows_default_browser.find("chrome") != std::string::npos)
 	{
 		this->OpenURLWithChrome(url);
