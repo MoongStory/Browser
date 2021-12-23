@@ -51,7 +51,7 @@ int MOONG::BROWSER::Browser::OpenURLWithWindowsDefaultBrowser(const std::string 
 {
 	std::string windows_default_browser;
 
-	this->registry_.Read(HKEY_CURRENT_USER, this->REG_SUB_KEY_WINDOWS_DEFAULT_BROWSER, this->REG_VALUE_WINDOWS_DEFAULT_BROWSER, windows_default_browser);
+	this->registry_.Read(HKEY_CURRENT_USER, this->REG_SUB_KEY_WINDOWS_DEFAULT_BROWSER.c_str(), this->REG_VALUE_WINDOWS_DEFAULT_BROWSER.c_str(), windows_default_browser);
 
 	std::transform(windows_default_browser.begin(), windows_default_browser.end(), windows_default_browser.begin(), ::tolower);
 
