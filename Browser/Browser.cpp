@@ -11,7 +11,7 @@ REG_VALUE_WINDOWS_DEFAULT_BROWSER("ProgID")
 
 }
 
-int MOONG::BROWSER::Browser::OpenURL(const std::string url, std::string browser)
+int MOONG::BROWSER::Browser::OpenURL(const std::string url, std::string browser) const
 {
 	std::transform(browser.begin(), browser.end(), browser.begin(), ::tolower);
 	
@@ -47,7 +47,7 @@ int MOONG::BROWSER::Browser::OpenURL(const std::string url, std::string browser)
 	return EXIT_SUCCESS;
 }
 
-int MOONG::BROWSER::Browser::OpenURLWithWindowsDefaultBrowser(const std::string url)
+int MOONG::BROWSER::Browser::OpenURLWithWindowsDefaultBrowser(const std::string url) const
 {
 	std::string windows_default_browser;
 
@@ -73,21 +73,21 @@ int MOONG::BROWSER::Browser::OpenURLWithWindowsDefaultBrowser(const std::string 
 	return EXIT_SUCCESS;
 }
 
-int MOONG::BROWSER::Browser::OpenURLWithIE(const std::string url)
+int MOONG::BROWSER::Browser::OpenURLWithIE(const std::string url) const
 {
 	ShellExecuteA(NULL, "open", "iexplore.exe", url.c_str(), "", SW_SHOW);
 	
 	return EXIT_SUCCESS;
 }
 
-int MOONG::BROWSER::Browser::OpenURLWithChrome(const std::string url)
+int MOONG::BROWSER::Browser::OpenURLWithChrome(const std::string url) const
 {
 	ShellExecuteA(NULL, "open", "chrome.exe", url.c_str(), "", SW_SHOW);
 	
 	return EXIT_SUCCESS;
 }
 
-int MOONG::BROWSER::Browser::OpenURLWithMSEdge(const std::string url)
+int MOONG::BROWSER::Browser::OpenURLWithMSEdge(const std::string url) const
 {
 	ShellExecuteA(NULL, "open", "msedge.exe", url.c_str(), "", SW_SHOW);
 

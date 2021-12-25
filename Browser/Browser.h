@@ -21,11 +21,11 @@ namespace MOONG
 		public:
 			Browser();
 
-			int OpenURL(const std::string url, std::string browser = "Default");
-			int OpenURLWithWindowsDefaultBrowser(const std::string url);
-			int OpenURLWithIE(const std::string url);
-			int OpenURLWithChrome(const std::string url);
-			int OpenURLWithMSEdge(const std::string url);
+			int OpenURL(const std::string url, std::string browser = "Default") const;
+			int OpenURLWithWindowsDefaultBrowser(const std::string url) const;
+			int OpenURLWithIE(const std::string url) const;
+			int OpenURLWithChrome(const std::string url) const;
+			int OpenURLWithMSEdge(const std::string url) const;
 
 		private:
 			const std::string REG_SUB_KEY_WINDOWS_DEFAULT_BROWSER;
