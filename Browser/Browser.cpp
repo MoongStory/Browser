@@ -5,7 +5,7 @@
 #pragma comment(lib, "Shell32.lib")
 
 MOONG::BROWSER::Browser::Browser() :
-REG_SUB_KEY_WINDOWS_DEFAULT_BROWSER("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.html\\UserChoice"),
+REG_SUB_KEY_WINDOWS_DEFAULT_BROWSER("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.htm\\UserChoice"),
 REG_VALUE_WINDOWS_DEFAULT_BROWSER("ProgID")
 {
 
