@@ -65,6 +65,10 @@ int MOONG::BROWSER::Browser::OpenURLWithWindowsDefaultBrowser(const CStringA url
 	{
 		this->OpenURLWithMSEdge(url);
 	}
+	else if (windows_default_browser.Find("htmlfile") >= 0)
+	{
+		this->OpenURLWithIE(url);
+	}
 	else
 	{
 		ShellExecuteA(NULL, "open", url.GetString(), "", "", SW_SHOW);	// 구현되지 않은 브라우저의 경우.
