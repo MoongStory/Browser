@@ -7,7 +7,7 @@
 #ifndef _BROWSER_H_
 #define _BROWSER_H_
 
-#include <atlstr.h>
+#include <iostream>
 
 // https://github.com/MoongStory/Registry
 #include "../../Registry/Registry/Registry.h"
@@ -21,15 +21,15 @@ namespace MOONG
 		public:
 			Browser();
 
-			int OpenURL(const CStringA url, CStringA browser = "Default") const;
-			int OpenURLWithWindowsDefaultBrowser(const CStringA url) const;
-			int OpenURLWithIE(const CStringA url) const;
-			int OpenURLWithChrome(const CStringA url) const;
-			int OpenURLWithMSEdge(const CStringA url) const;
+			int OpenURL(const std::string url, std::string browser = "Default") const;
+			int OpenURLWithWindowsDefaultBrowser(const std::string url) const;
+			int OpenURLWithIE(const std::string url) const;
+			int OpenURLWithChrome(const std::string url) const;
+			int OpenURLWithMSEdge(const std::string url) const;
 
 		private:
-			const CStringA REG_SUB_KEY_WINDOWS_DEFAULT_BROWSER;
-			const CStringA REG_VALUE_WINDOWS_DEFAULT_BROWSER;
+			const std::string REG_SUB_KEY_WINDOWS_DEFAULT_BROWSER;
+			const std::string REG_VALUE_WINDOWS_DEFAULT_BROWSER;
 
 			MOONG::REGISTRY::Registry registry_;
 		};
