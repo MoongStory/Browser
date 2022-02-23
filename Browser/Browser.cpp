@@ -15,27 +15,27 @@ int MOONG::BROWSER::Browser::OpenURL(const std::string url, std::string browser)
 {
 	std::transform(browser.begin(), browser.end(), browser.begin(), ::tolower);
 	
-	if(browser == "default")
+	if(browser.compare("default") == 0)
 	{
 		this->OpenURLWithWindowsDefaultBrowser(url);
 	}
-	else if(browser == "ie")
+	else if(browser.compare("ie") == 0)
 	{
 		this->OpenURLWithIE(url);
 	}
-	else if(browser == "internet explorer")
+	else if(browser.compare("internet explorer") == 0)
 	{
 		this->OpenURLWithIE(url);
 	}
-	else if(browser == "chrome")
+	else if(browser.compare("chrome") == 0)
 	{
 		this->OpenURLWithChrome(url);
 	}
-	else if (browser == "edge")
+	else if (browser.compare("edge") == 0)
 	{
 		this->OpenURLWithMSEdge(url);
 	}
-	else if (browser == "msedge")
+	else if (browser.compare("msedge") == 0)
 	{
 		this->OpenURLWithMSEdge(url);
 	}
