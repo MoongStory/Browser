@@ -27,6 +27,8 @@ namespace MOONG
 			int OpenURLWithChrome(const std::string url) const;
 			int OpenURLWithMSEdge(const std::string url) const;
 
+			LSTATUS getWindowsDefaultBrowser(std::string& windows_default_browser) const;
+
 		private:
 			const std::string REG_SUB_KEY_WINDOWS_DEFAULT_BROWSER;
 			const std::string REG_VALUE_WINDOWS_DEFAULT_BROWSER;
