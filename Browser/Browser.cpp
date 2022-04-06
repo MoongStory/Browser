@@ -2,6 +2,10 @@
 
 #include <algorithm>
 #include <Windows.h>
+
+#if _MSC_VER <= 1600
+#include <shellapi.h>
+#endif
 #pragma comment(lib, "Shell32.lib")
 
 MOONG::BROWSER::Browser::Browser() :
