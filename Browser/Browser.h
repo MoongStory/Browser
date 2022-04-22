@@ -19,21 +19,21 @@ namespace MOONG
 		class Browser
 		{
 		public:
-			Browser();
-
-			int OpenURL(const std::string url, std::string browser = "Default") const;
-			int OpenURLWithWindowsDefaultBrowser(const std::string url) const;
-			int OpenURLWithIE(const std::string url) const;
-			int OpenURLWithChrome(const std::string url) const;
-			int OpenURLWithMSEdge(const std::string url) const;
-
-			LSTATUS getWindowsDefaultBrowser(std::string& windows_default_browser) const;
-
+		protected:
 		private:
-			const std::string REG_SUB_KEY_WINDOWS_DEFAULT_BROWSER;
-			const std::string REG_VALUE_WINDOWS_DEFAULT_BROWSER;
+			static const std::string REG_SUB_KEY_WINDOWS_DEFAULT_BROWSER;
+			static const std::string REG_VALUE_WINDOWS_DEFAULT_BROWSER;
 
-			MOONG::REGISTRY::Registry registry_;
+		public:
+			static int OpenURL(const std::string url, std::string browser = "Default");
+			static int OpenURLWithWindowsDefaultBrowser(const std::string url);
+			static int OpenURLWithIE(const std::string url);
+			static int OpenURLWithChrome(const std::string url);
+			static int OpenURLWithMSEdge(const std::string url);
+
+			static LSTATUS getWindowsDefaultBrowser(std::string& windows_default_browser);
+		protected:
+		private:
 		};
 	}
 }

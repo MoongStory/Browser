@@ -2,24 +2,22 @@
 
 int main()
 {
-	MOONG::BROWSER::Browser browser;
-
 	// -kiosk 옵션의 경우 해당 브라우저가 하나도 실행중이지 않아야 키오스크 모드로 실행된다.
-	browser.OpenURL("www.google.com");
+	MOONG::BROWSER::Browser::OpenURL("www.google.com");
 	system("pause");
-	browser.OpenURL("www.google.com", "edge");
+	MOONG::BROWSER::Browser::OpenURL("www.google.com", "edge");
 	system("pause");
-	browser.OpenURL("-kiosk www.google.com");
+	MOONG::BROWSER::Browser::OpenURL("-kiosk www.google.com");
 	system("pause");
-	browser.OpenURLWithChrome("www.google.com");
+	MOONG::BROWSER::Browser::OpenURLWithChrome("www.google.com");
 	system("pause");
-	browser.OpenURLWithChrome("-kiosk www.google.com");
+	MOONG::BROWSER::Browser::OpenURLWithChrome("-kiosk www.google.com");
 	system("pause");
-	browser.OpenURLWithIE("www.google.com");
+	MOONG::BROWSER::Browser::OpenURLWithIE("www.google.com");
 	system("pause");
-	browser.OpenURLWithMSEdge("www.google.com");
+	MOONG::BROWSER::Browser::OpenURLWithMSEdge("www.google.com");
 	system("pause");
-	browser.OpenURLWithMSEdge("-kiosk www.google.com");
+	MOONG::BROWSER::Browser::OpenURLWithMSEdge("-kiosk www.google.com");
 
 	return EXIT_SUCCESS;
 }
