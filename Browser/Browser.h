@@ -28,9 +28,9 @@ namespace MOONG
 	public:
 		static void OpenURL(const std::string url, std::string browser = "Default") noexcept(false);
 		static void OpenURLWithWindowsDefaultBrowser(const std::string url) noexcept(false);
-		static void OpenURLWithIE(const std::string url) noexcept(true);
-		static void OpenURLWithChrome(const std::string url) noexcept(true);
-		static void OpenURLWithMSEdge(const std::string url) noexcept(true);
+		static void OpenURLWithIE(const std::string url);
+		static void OpenURLWithChrome(const std::string url);
+		static void OpenURLWithMSEdge(const std::string url);
 		
 		static LSTATUS getWindowsDefaultBrowser(std::string& windows_default_browser) noexcept(false);
 	protected:

@@ -87,17 +87,17 @@ void MOONG::Browser::OpenURLWithWindowsDefaultBrowser(const std::string url) noe
 	}
 }
 
-void MOONG::Browser::OpenURLWithIE(const std::string url) noexcept(true)
+void MOONG::Browser::OpenURLWithIE(const std::string url)
 {
 	ShellExecuteA(NULL, "open", "iexplore.exe", url.c_str(), "", SW_SHOW);
 }
 
-void MOONG::Browser::OpenURLWithChrome(const std::string url) noexcept(true)
+void MOONG::Browser::OpenURLWithChrome(const std::string url)
 {
 	ShellExecuteA(NULL, "open", "chrome.exe", url.c_str(), "", SW_SHOW);
 }
 
-void MOONG::Browser::OpenURLWithMSEdge(const std::string url) noexcept(true)
+void MOONG::Browser::OpenURLWithMSEdge(const std::string url)
 {
 	ShellExecuteA(NULL, "open", "msedge.exe", url.c_str(), "", SW_SHOW);
 }
