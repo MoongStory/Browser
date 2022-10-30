@@ -12,6 +12,9 @@
 // https://github.com/MoongStory/Registry
 #include "../../Registry/Registry/Registry.h"
 
+// https://github.com/MoongStory/Exception
+#include "../../Exception/Exception/Exception.h"
+
 namespace MOONG
 {
 	class Browser
@@ -23,13 +26,13 @@ namespace MOONG
 		static const std::string REG_VALUE_WINDOWS_DEFAULT_BROWSER;
 		
 	public:
-		static int OpenURL(const std::string url, std::string browser = "Default");
-		static int OpenURLWithWindowsDefaultBrowser(const std::string url);
-		static int OpenURLWithIE(const std::string url);
-		static int OpenURLWithChrome(const std::string url);
-		static int OpenURLWithMSEdge(const std::string url);
+		static void OpenURL(const std::string url, std::string browser = "Default") noexcept(false);
+		static void OpenURLWithWindowsDefaultBrowser(const std::string url) noexcept(false);
+		static void OpenURLWithIE(const std::string url) noexcept(true);
+		static void OpenURLWithChrome(const std::string url) noexcept(true);
+		static void OpenURLWithMSEdge(const std::string url) noexcept(true);
 		
-		static LSTATUS getWindowsDefaultBrowser(std::string& windows_default_browser);
+		static LSTATUS getWindowsDefaultBrowser(std::string& windows_default_browser) noexcept(false);
 	protected:
 	private:
 	};
