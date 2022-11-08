@@ -46,9 +46,9 @@ void MOONG::Browser::OpenURL(const std::string url, std::string browser/* = "Def
 			MOONG::Browser::OpenURLWithWindowsDefaultBrowser(url);
 		}
 	}
-	catch (...)
+	catch (const std::exception& exception)
 	{
-		throw;
+		throw exception;
 	}
 }
 
@@ -81,9 +81,9 @@ void MOONG::Browser::OpenURLWithWindowsDefaultBrowser(const std::string url) noe
 			ShellExecuteA(NULL, "open", url.c_str(), "", "", SW_SHOW);	// 구현되지 않은 브라우저의 경우.
 		}
 	}
-	catch (...)
+	catch (const std::exception& exception)
 	{
-		throw;
+		throw exception;
 	}
 }
 
@@ -108,8 +108,8 @@ LSTATUS MOONG::Browser::getWindowsDefaultBrowser(std::string& windows_default_br
 	{
 		return MOONG::Registry::Read(HKEY_CURRENT_USER, MOONG::Browser::REG_SUB_KEY_WINDOWS_DEFAULT_BROWSER.c_str(), MOONG::Browser::REG_VALUE_WINDOWS_DEFAULT_BROWSER.c_str(), windows_default_browser);
 	}
-	catch (...)
+	catch (const std::exception& exception)
 	{
-		throw;
+		throw exception;
 	}
 }

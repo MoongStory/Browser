@@ -27,9 +27,6 @@
     <ClCompile Include="..\..\ConvertDataType\ConvertDataType\ConvertDataType.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Exception\Exception\Exception.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Browser.h">

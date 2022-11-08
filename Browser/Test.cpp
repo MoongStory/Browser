@@ -21,9 +21,9 @@ int main()
 		//system("pause");
 		//MOONG::Browser::OpenURLWithMSEdge("-kiosk www.google.com");
 	}
-	catch (MOONG::Exception& exception)
+	catch (const std::exception& exception)
 	{
-		std::cout << exception.getReason().c_str() << std::endl;
+		std::cout << exception.what() << std::endl;
 	}
 
 	return EXIT_SUCCESS;

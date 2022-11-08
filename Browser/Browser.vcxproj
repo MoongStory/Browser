@@ -142,7 +142,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\ConvertDataType\ConvertDataType\ConvertDataType.cpp" />
-    <ClCompile Include="..\..\Exception\Exception\Exception.cpp" />
     <ClCompile Include="..\..\Registry\Registry\Registry.cpp" />
     <ClCompile Include="Browser.cpp" />
     <ClCompile Include="Test.cpp" />
