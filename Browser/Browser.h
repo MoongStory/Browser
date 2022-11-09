@@ -8,12 +8,7 @@
 #define _BROWSER_H_
 
 #include <iostream>
-
-// https://github.com/MoongStory/Registry
-#include "../../Registry/Registry/Registry.h"
-
-// https://github.com/MoongStory/Exception
-#include "../../Exception/Exception/Exception.h"
+#include <Windows.h>
 
 namespace MOONG
 {

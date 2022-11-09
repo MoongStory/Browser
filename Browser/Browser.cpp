@@ -1,7 +1,12 @@
 #include "Browser.h"
 
+// https://github.com/MoongStory/Registry
+#include "../../Registry/Registry/Registry.h"
+
+// https://github.com/MoongStory/Exception
+#include "../../Exception/Exception/Exception.h"
+
 #include <algorithm>
-#include <Windows.h>
 
 #if _MSC_VER <= 1600
 #include <shellapi.h>
