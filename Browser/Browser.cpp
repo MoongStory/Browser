@@ -16,45 +16,59 @@
 const std::string MOONG::Browser::REG_SUB_KEY_WINDOWS_DEFAULT_BROWSER = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.htm\\UserChoice";
 const std::string MOONG::Browser::REG_VALUE_WINDOWS_DEFAULT_BROWSER = "ProgID";
 
-void MOONG::Browser::OpenURL(const std::string url, std::string browser/* = "Default"*/)
+void MOONG::Browser::OpenURL(const std::string url, std::string browser/* = "Default"*/) noexcept(false)
 {
-	std::transform(browser.begin(), browser.end(), browser.begin(), ::tolower);
+	try
+	{
+		std::transform(browser.begin(), browser.end(), browser.begin(), ::tolower);
 
-	if (browser.compare("default") == 0)
-	{
-		MOONG::Browser::OpenURLWithWindowsDefaultBrowser(url);
+		if (browser.compare("default") == 0)
+		{
+			MOONG::Browser::OpenURLWithWindowsDefaultBrowser(url);
+		}
+		else if (browser.compare("ie") == 0)
+		{
+			MOONG::Browser::OpenURLWithIE(url);
+		}
+		else if (browser.compare("internet explorer") == 0)
+		{
+			MOONG::Browser::OpenURLWithIE(url);
+		}
+		else if (browser.compare("chrome") == 0)
+		{
+			MOONG::Browser::OpenURLWithChrome(url);
+		}
+		else if (browser.compare("edge") == 0)
+		{
+			MOONG::Browser::OpenURLWithMSEdge(url);
+		}
+		else if (browser.compare("msedge") == 0)
+		{
+			MOONG::Browser::OpenURLWithMSEdge(url);
+		}
+		else
+		{
+			MOONG::Browser::OpenURLWithWindowsDefaultBrowser(url);
+		}
 	}
-	else if (browser.compare("ie") == 0)
+	catch (const std::bad_alloc& exception)
 	{
-		MOONG::Browser::OpenURLWithIE(url);
-	}
-	else if (browser.compare("internet explorer") == 0)
-	{
-		MOONG::Browser::OpenURLWithIE(url);
-	}
-	else if (browser.compare("chrome") == 0)
-	{
-		MOONG::Browser::OpenURLWithChrome(url);
-	}
-	else if (browser.compare("edge") == 0)
-	{
-		MOONG::Browser::OpenURLWithMSEdge(url);
-	}
-	else if (browser.compare("msedge") == 0)
-	{
-		MOONG::Browser::OpenURLWithMSEdge(url);
-	}
-	else
-	{
-		MOONG::Browser::OpenURLWithWindowsDefaultBrowser(url);
+		throw exception;
 	}
 }
 
-void MOONG::Browser::OpenURLWithWindowsDefaultBrowser(const std::string url)
+void MOONG::Browser::OpenURLWithWindowsDefaultBrowser(const std::string url) noexcept(false)
 {
 	std::string windows_default_browser;
 
-	MOONG::Browser::getWindowsDefaultBrowser(windows_default_browser);
+	try
+	{
+		MOONG::Browser::getWindowsDefaultBrowser(windows_default_browser);
+	}
+	catch (const std::bad_alloc& exception)
+	{
+		throw exception;
+	}
 
 	std::transform(windows_default_browser.begin(), windows_default_browser.end(), windows_default_browser.begin(), ::tolower);
 
@@ -93,7 +107,14 @@ void MOONG::Browser::OpenURLWithMSEdge(const std::string url)
 	ShellExecuteA(NULL, "open", "msedge.exe", url.c_str(), "", SW_SHOW);
 }
 
-LSTATUS MOONG::Browser::getWindowsDefaultBrowser(std::string& windows_default_browser)
+LSTATUS MOONG::Browser::getWindowsDefaultBrowser(std::string& windows_default_browser) noexcept(false)
 {
-	return MOONG::Registry::Read(HKEY_CURRENT_USER, MOONG::Browser::REG_SUB_KEY_WINDOWS_DEFAULT_BROWSER.c_str(), MOONG::Browser::REG_VALUE_WINDOWS_DEFAULT_BROWSER.c_str(), windows_default_browser);
+	try
+	{
+		return MOONG::Registry::Read(HKEY_CURRENT_USER, MOONG::Browser::REG_SUB_KEY_WINDOWS_DEFAULT_BROWSER.c_str(), MOONG::Browser::REG_VALUE_WINDOWS_DEFAULT_BROWSER.c_str(), windows_default_browser);
+	}
+	catch (const std::bad_alloc& exception)
+	{
+		throw exception;
+	}
 }
