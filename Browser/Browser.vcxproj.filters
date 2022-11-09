@@ -35,10 +35,10 @@
     <ClInclude Include="..\..\Registry\Registry\Registry.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ConvertDataType\ConvertDataType\ConvertDataType.h">
+    <ClInclude Include="..\..\Exception\Exception\Exception.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Exception\Exception\Exception.h">
+    <ClInclude Include="..\..\ConvertDataType\ConvertDataType\ConvertDataType.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
