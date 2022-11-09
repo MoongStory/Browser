@@ -148,7 +148,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\ConvertDataType\ConvertDataType\ConvertDataType.h" />
-    <ClInclude Include="..\..\Exception\Exception\Exception.h" />
     <ClInclude Include="..\..\Registry\Registry\Registry.h" />
     <ClInclude Include="Browser.h" />
   </ItemGroup>
