@@ -48,7 +48,7 @@ void MOONG::Browser::OpenURL(const std::string url, std::string browser/* = "Def
 			MOONG::Browser::OpenURLWithWindowsDefaultBrowser(url);
 		}
 	}
-	catch (const std::bad_alloc& exception)
+	catch (const std::exception& exception)
 	{
 		throw exception;
 	}
@@ -62,7 +62,7 @@ void MOONG::Browser::OpenURLWithWindowsDefaultBrowser(const std::string url) noe
 	{
 		MOONG::Browser::getWindowsDefaultBrowser(windows_default_browser);
 	}
-	catch (const std::bad_alloc& exception)
+	catch (const std::exception& exception)
 	{
 		throw exception;
 	}
@@ -110,7 +110,7 @@ LSTATUS MOONG::Browser::getWindowsDefaultBrowser(std::string& windows_default_br
 	{
 		return MOONG::Registry::Read(HKEY_CURRENT_USER, MOONG::Browser::REG_SUB_KEY_WINDOWS_DEFAULT_BROWSER.c_str(), MOONG::Browser::REG_VALUE_WINDOWS_DEFAULT_BROWSER.c_str(), windows_default_browser);
 	}
-	catch (const std::bad_alloc& exception)
+	catch (const std::exception& exception)
 	{
 		throw exception;
 	}
