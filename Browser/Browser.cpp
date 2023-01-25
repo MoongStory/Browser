@@ -1,7 +1,7 @@
 #include "Browser.h"
 
-// https://github.com/MoongStory/Registry
 #include "../../Registry/Registry/Registry.h"
+#include "../../StringTool/StringTool/StringTool.h"
 
 #include <algorithm>
 
@@ -10,14 +10,18 @@
 #endif
 #pragma comment(lib, "Shell32.lib")
 
-const std::string MOONG::Browser::REG_SUB_KEY_WINDOWS_DEFAULT_BROWSER = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.htm\\UserChoice";
+// 컴퓨터\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\Shell\Associations\UrlAssociations\https\UserChoice	ProgId
+// 컴퓨터\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.html\UserChoice	ProgId
+// ChromeHTML
+// MSEdgeHTM
+const std::string MOONG::Browser::REG_SUB_KEY_WINDOWS_DEFAULT_BROWSER = "SOFTWARE\\Microsoft\\Windows\\Shell\\Associations\\UrlAssociations\\https\\UserChoice";
 const std::string MOONG::Browser::REG_VALUE_WINDOWS_DEFAULT_BROWSER = "ProgID";
 
 void MOONG::Browser::OpenURL(const std::string url, std::string browser/* = "Default"*/) noexcept(false)
 {
 	try
 	{
-		std::transform(browser.begin(), browser.end(), browser.begin(), ::tolower);
+		MOONG::StringTool::tolower(browser);
 
 		if (browser.compare("default") == 0)
 		{
@@ -67,7 +71,7 @@ void MOONG::Browser::OpenURLWithWindowsDefaultBrowser(const std::string url) noe
 		throw exception;
 	}
 
-	std::transform(windows_default_browser.begin(), windows_default_browser.end(), windows_default_browser.begin(), ::tolower);
+	MOONG::StringTool::tolower(windows_default_browser);
 
 	// 파라미터 url 앞에 "-kiosk"가 붙어서 올 경우 크롬, 엣지는 정상 동작하지만,
 	// 다른 브라우저의 경우 "-kiosk"가 아닐 경우 여기서 치환해준다.
