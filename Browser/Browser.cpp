@@ -17,7 +17,7 @@
 const std::string MOONG::Browser::REG_SUB_KEY_WINDOWS_DEFAULT_BROWSER = "SOFTWARE\\Microsoft\\Windows\\Shell\\Associations\\UrlAssociations\\https\\UserChoice";
 const std::string MOONG::Browser::REG_VALUE_WINDOWS_DEFAULT_BROWSER = "ProgID";
 
-void MOONG::Browser::OpenURL(const std::string url, std::string browser/* = "Default"*/) noexcept(false)
+void MOONG::Browser::OpenURL(const std::string url, std::string browser/* = "Default"*/)
 {
 	try
 	{
@@ -58,7 +58,7 @@ void MOONG::Browser::OpenURL(const std::string url, std::string browser/* = "Def
 	}
 }
 
-void MOONG::Browser::OpenURLWithWindowsDefaultBrowser(const std::string url) noexcept(false)
+void MOONG::Browser::OpenURLWithWindowsDefaultBrowser(const std::string url)
 {
 	std::string windows_default_browser;
 
@@ -108,7 +108,7 @@ void MOONG::Browser::OpenURLWithMSEdge(const std::string url)
 	ShellExecuteA(NULL, "open", "msedge.exe", url.c_str(), "", SW_SHOW);
 }
 
-LSTATUS MOONG::Browser::getWindowsDefaultBrowser(std::string& windows_default_browser) noexcept(false)
+LSTATUS MOONG::Browser::getWindowsDefaultBrowser(std::string& windows_default_browser)
 {
 	try
 	{
