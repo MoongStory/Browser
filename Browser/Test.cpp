@@ -22,7 +22,7 @@ int main()
 		//MOONG::Browser::OpenURLWithMSEdge("-kiosk www.google.com");
 
 		std::string windows_default_browser;
-		MOONG::Browser::getWindowsDefaultBrowser(windows_default_browser);
+		MOONG::Browser::get_windows_default_browser(windows_default_browser);
 		std::cout << windows_default_browser << std::endl;
 	}
 	catch (const std::exception& exception)

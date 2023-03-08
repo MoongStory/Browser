@@ -49,13 +49,13 @@ namespace MOONG
 		static const std::string REG_VALUE_WINDOWS_DEFAULT_BROWSER;
 		
 	public:
-		static void OpenURL(const std::string url, std::string browser = "Default");
-		static void OpenURLWithWindowsDefaultBrowser(const std::string url);
-		static void OpenURLWithIE(const std::string url);
-		static void OpenURLWithChrome(const std::string url);
-		static void OpenURLWithMSEdge(const std::string url);
+		static void open_url(const std::string url, std::string browser = "Default");
+		static void open_url_with_windows_default_browser(const std::string url);
+		static void open_url_with_internet_explorer(const std::string url);
+		static void open_url_with_chrome(const std::string url);
+		static void open_url_with_edge(const std::string url);
 		
-		static LSTATUS getWindowsDefaultBrowser(std::string& windows_default_browser);
+		static LSTATUS get_windows_default_browser(std::string& windows_default_browser);
 	protected:
 	private:
 	};
